@@ -1,9 +1,8 @@
 <?php
-
 namespace Laravel\Ui;
 
-use Illuminate\Console\Command;
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 
 class UiCommand extends Command
 {
@@ -37,7 +36,7 @@ class UiCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react'])) {
+        if (!in_array($this->argument('type'), ['bootstrap', 'vue', 'react', 'adminlte'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -86,6 +85,20 @@ class UiCommand extends Command
         Presets\React::install();
 
         $this->info('React scaffolding installed successfully.');
+        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
+    }
+
+    /**
+     * Install the "adminlte" preset.
+     *
+     * @return void
+     */
+    protected function adminlte()
+    {
+        Presets\Bootstrap::install();
+        Presets\AdminLTE::install();
+
+        $this->info('AdminLTE scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 }

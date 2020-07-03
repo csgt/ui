@@ -1,9 +1,8 @@
 <?php
-
 namespace Laravel\Ui;
 
-use Illuminate\Console\Command;
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 
 class AuthCommand extends Command
 {
@@ -30,14 +29,34 @@ class AuthCommand extends Command
      * @var array
      */
     protected $views = [
-        'auth/login.stub' => 'auth/login.blade.php',
+        'auth/login.stub'             => 'auth/login.blade.php',
         'auth/passwords/confirm.stub' => 'auth/passwords/confirm.blade.php',
-        'auth/passwords/email.stub' => 'auth/passwords/email.blade.php',
-        'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
-        'auth/register.stub' => 'auth/register.blade.php',
-        'auth/verify.stub' => 'auth/verify.blade.php',
-        'home.stub' => 'home.blade.php',
-        'layouts/app.stub' => 'layouts/app.blade.php',
+        'auth/passwords/email.stub'   => 'auth/passwords/email.blade.php',
+        'auth/passwords/reset.stub'   => 'auth/passwords/reset.blade.php',
+        'auth/register.stub'          => 'auth/register.blade.php',
+        'auth/verify.stub'            => 'auth/verify.blade.php',
+        'home.stub'                   => 'home.blade.php',
+        'layouts/app.stub'            => 'layouts/app.blade.php',
+    ];
+
+    protected $trans = [
+        'es/auth.stub'       => 'es/auth.php',
+        'es/login.stub'      => 'es/login.php',
+        'es/pagination.stub' => 'es/pagination.php',
+        'es/passwords.stub'  => 'es/passwords.php',
+        'es/validation.stub' => 'es/validation.php',
+        'es.json'            => 'es.json',
+    ];
+
+    protected $seeds = [
+        'DatabaseSeeder.stub'          => 'DatabaseSeeder.php',
+        'GodSeeder.stub'               => 'GodSeeder.php',
+        'InitialSeeder.stub'           => 'InitialSeeder.php',
+        'MenuSeeder.stub'              => 'MenuSeeder.php',
+        'ModulePermissionsSeeder.stub' => 'ModulePermissionsSeeder.php',
+        'ModulesSeeder.stub'           => 'ModulesSeeder.php',
+        'PermissionsSeeder.stub'       => 'PermissionsSeeder.php',
+        'Sections.stub'                => 'Sections.php',
     ];
 
     /**
@@ -53,14 +72,16 @@ class AuthCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['bootstrap'])) {
+        if (!in_array($this->argument('type'), ['bootstrap'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
         $this->ensureDirectoriesExist();
         $this->exportViews();
+        $this->exportLangs();
+        $this->exportSeeds();
 
-        if (! $this->option('views')) {
+        if (!$this->option('views')) {
             $this->exportBackend();
         }
 
@@ -74,11 +95,19 @@ class AuthCommand extends Command
      */
     protected function ensureDirectoriesExist()
     {
-        if (! is_dir($directory = $this->getViewPath('layouts'))) {
+        if (!is_dir($directory = $this->getViewPath('layouts'))) {
             mkdir($directory, 0755, true);
         }
 
-        if (! is_dir($directory = $this->getViewPath('auth/passwords'))) {
+        if (!is_dir($directory = $this->getViewPath('auth/passwords'))) {
+            mkdir($directory, 0755, true);
+        }
+
+        if (!is_dir($directory = app_path('Http/Controllers/Catalogs'))) {
+            mkdir($directory, 0755, true);
+        }
+
+        if (!is_dir($directory = resource_path('lang/es'))) {
             mkdir($directory, 0755, true);
         }
     }
@@ -91,15 +120,57 @@ class AuthCommand extends Command
     protected function exportViews()
     {
         foreach ($this->views as $key => $value) {
-            if (file_exists($view = $this->getViewPath($value)) && ! $this->option('force')) {
-                if (! $this->confirm("The [{$value}] view already exists. Do you want to replace it?")) {
+            if (file_exists($view = $this->getViewPath($value)) && !$this->option('force')) {
+                if (!$this->confirm("The [{$value}] view already exists. Do you want to replace it?")) {
                     continue;
                 }
             }
 
             copy(
-                __DIR__.'/Auth/'.$this->argument('type').'-stubs/'.$key,
+                __DIR__ . '/Auth/' . $this->argument('type') . '-stubs/' . $key,
                 $view
+            );
+        }
+    }
+
+    /**
+     * Export the authentication langs.
+     *
+     * @return void
+     */
+    protected function exportLangs()
+    {
+        foreach ($this->trans as $key => $value) {
+            if (file_exists($lang = resource_path('lang/' . $value)) && !$this->option('force')) {
+                if (!$this->confirm("The [{$value}] lang already exists. Do you want to replace it?")) {
+                    continue;
+                }
+            }
+
+            copy(
+                __DIR__ . '/Auth/stubs/langs/' . $key,
+                $lang
+            );
+        }
+    }
+
+    /**
+     * Export the authentication seeders
+     *
+     * @return void
+     */
+    protected function exportSeeds()
+    {
+        foreach ($this->seeds as $key => $value) {
+            if (file_exists($seed = database_path('seeds/' . $value)) && !$this->option('force')) {
+                if (!$this->confirm("The [{$value}] seed already exists. Do you want to replace it?")) {
+                    continue;
+                }
+            }
+
+            copy(
+                __DIR__ . '/Auth/stubs/seeds/' . $key,
+                $seed
             );
         }
     }
@@ -113,24 +184,32 @@ class AuthCommand extends Command
     {
         $this->callSilent('ui:controllers');
 
-        $controller = app_path('Http/Controllers/HomeController.php');
+        $stubs = [
+            'HomeController',
+            'Catalogs/RolesController',
+            'Catalogs/UsersController',
+        ];
 
-        if (file_exists($controller) && ! $this->option('force')) {
-            if ($this->confirm("The [HomeController.php] file already exists. Do you want to replace it?")) {
-                file_put_contents($controller, $this->compileControllerStub());
+        foreach ($stubs as $stub) {
+            $controller = app_path('Http/Controllers/' . $stub . '.php');
+
+            if (file_exists($controller) && !$this->option('force')) {
+                if ($this->confirm("The [" . $stub . ".php] file already exists. Do you want to replace it?")) {
+                    file_put_contents($controller, $this->compileControllerStub($stub . '.stub'));
+                }
+            } else {
+                file_put_contents($controller, $this->compileControllerStub($stub . '.stub'));
             }
-        } else {
-            file_put_contents($controller, $this->compileControllerStub());
         }
 
         file_put_contents(
             base_path('routes/web.php'),
-            file_get_contents(__DIR__.'/Auth/stubs/routes.stub'),
+            file_get_contents(__DIR__ . '/Auth/stubs/routes.stub'),
             FILE_APPEND
         );
 
         copy(
-            __DIR__.'/../stubs/migrations/2014_10_12_100000_create_password_resets_table.php',
+            __DIR__ . '/../stubs/migrations/2014_10_12_100000_create_password_resets_table.php',
             base_path('database/migrations/2014_10_12_100000_create_password_resets_table.php')
         );
     }
@@ -140,12 +219,12 @@ class AuthCommand extends Command
      *
      * @return string
      */
-    protected function compileControllerStub()
+    protected function compileControllerStub($path)
     {
         return str_replace(
             '{{namespace}}',
             $this->laravel->getNamespace(),
-            file_get_contents(__DIR__.'/Auth/stubs/controllers/HomeController.stub')
+            file_get_contents(__DIR__ . '/Auth/stubs/controllers/' . $path)
         );
     }
 
