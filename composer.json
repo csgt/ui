@@ -1,6 +1,6 @@
 {
-    "name": "laravel/ui",
-    "description": "Laravel UI utilities and presets.",
+    "name": "csgt/ui",
+    "description": "CSGT Laravel UI utilities and presets.",
     "keywords": ["laravel", "ui"],
     "license": "MIT",
     "authors": [
