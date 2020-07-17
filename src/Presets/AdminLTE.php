@@ -13,6 +13,7 @@ class AdminLTE extends Preset
     public static function install()
     {
         static::ensureComponentDirectoryExists();
+        static::updatePackages();
         static::updateWebpackConfiguration();
         static::updateSass();
         static::updateBootstrapping();
