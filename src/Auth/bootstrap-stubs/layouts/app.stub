@@ -106,6 +106,8 @@
     @endif
 
     <script src="{{ mix('dist/js/app.js') }}"></script>
+    <script src="{{ mix('dist/js/manifest.js') }}"></script>
+    <script src="{{ mix('dist/js/vendor.js') }}"></script>
     @yield('javascript')
     <script>
         $(document).ready(function() {

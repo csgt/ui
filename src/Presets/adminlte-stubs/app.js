@@ -4,9 +4,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+import Vue from "Vue";
+window.Vue = require("vue");
 
 /**
  * The following block of code may be used to automatically register your
@@ -16,14 +17,37 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context("./", true, /\.vue$/i);
+files
+    .keys()
+    .map((key) =>
+        Vue.component(key.split("/").pop().split(".")[0], files(key).default)
+    );
 
-Vue.component('catalogs-roles-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/RolesEdit.vue').default)
-Vue.component('catalogs-rolemodule', require('../../vendor/csgt/utils/src/resources/views/catalogs/RoleModule.vue').default)
-Vue.component('catalogs-users-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/UsersEdit.vue').default)
-Vue.component('profile', require('../../vendor/csgt/utils/src/resources/views/Profile.vue').default)
-Vue.component('InputField', require('../../vendor/csgt/utils/src/resources/components/InputField.vue').default)
+Vue.component(
+    "catalogs-roles-edit",
+    require("../../vendor/csgt/utils/src/resources/views/catalogs/RolesEdit.vue")
+        .default
+);
+Vue.component(
+    "catalogs-rolemodule",
+    require("../../vendor/csgt/utils/src/resources/views/catalogs/RoleModule.vue")
+        .default
+);
+Vue.component(
+    "catalogs-users-edit",
+    require("../../vendor/csgt/utils/src/resources/views/catalogs/UsersEdit.vue")
+        .default
+);
+Vue.component(
+    "profile",
+    require("../../vendor/csgt/utils/src/resources/views/Profile.vue").default
+);
+Vue.component(
+    "InputField",
+    require("../../vendor/csgt/utils/src/resources/components/InputField.vue")
+        .default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,5 +56,5 @@ Vue.component('InputField', require('../../vendor/csgt/utils/src/resources/compo
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
 });
