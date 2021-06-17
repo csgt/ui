@@ -1,6 +1,92 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v2.0.3...2.x)
+## [Unreleased](https://github.com/laravel/ui/compare/v3.3.0...3.x)
+
+
+## [v3.3.0 (2021-05-25)](https://github.com/laravel/ui/compare/v3.2.1...v3.3.0)
+
+### Added
+- Use new Password::defaults() feature ([#204](https://github.com/laravel/ui/pull/204))
+
+
+## [v3.2.1 (2021-04-27)](https://github.com/laravel/ui/compare/v3.2.0...v3.2.1)
+
+### Changed
+- Use trans helper instead of Lang Facade ([#201](https://github.com/laravel/ui/pull/201))
+- Update NPM dependencies ([#203](https://github.com/laravel/ui/pull/203))
+
+
+## [v3.2.0 (2021-01-06)](https://github.com/laravel/ui/compare/v3.1.0...v3.2.0)
+
+### Changed
+- Tweak stubs for Mix 6 ([#193](https://github.com/laravel/ui/pull/193))
+
+
+## [v3.1.0 (2020-11-03)](https://github.com/laravel/ui/compare/v3.0.0...v3.1.0)
+
+### Added
+- Added PHP 8 Support ([#178](https://github.com/laravel/ui/pull/178))
+
+### Changed
+- Add sourcemaps to webpack config ([#168](https://github.com/laravel/ui/pull/168))
+
+### Fixed
+- Wrap login link in app.stub with a route check ([#177](https://github.com/laravel/ui/pull/177))
+
+
+## [v3.0.0 (2020-09-11)](https://github.com/laravel/ui/compare/v2.4.0...v3.0.0)
+
+### Added
+- Laravel 8 support ([#155](https://github.com/laravel/ui/pull/155))
+
+### Fixed
+- Fetch reset token explicitly ([#130](https://github.com/laravel/ui/pull/130))
+
+
+## [v2.4.1 (2020-09-22)](https://github.com/laravel/ui/compare/v2.4.0...v2.4.1)
+
+### Changed
+- Revert "Add namespace check to Auth routes" ([#160](https://github.com/laravel/ui/pull/160))
+
+
+## [v2.4.0 (2020-09-11)](https://github.com/laravel/ui/compare/v2.3.0...v2.4.0)
+
+### Removed
+- Remove Laravel 8 support ([#154](https://github.com/laravel/ui/pull/154))
+
+### Fixed
+- Fix Bootstrap preset ([#146](https://github.com/laravel/ui/pull/146))
+
+
+## [v2.3.0 (2020-09-09)](https://github.com/laravel/ui/compare/v2.2.1...v2.3.0)
+
+### Fixed
+- Add namespace check to Auth routes ([#143](https://github.com/laravel/ui/pull/143))
+
+
+## [v2.2.1 (2020-09-08)](https://github.com/laravel/ui/compare/v2.2.0...v2.2.1)
+
+### Fixed
+- Use proper json responses ([#139](https://github.com/laravel/ui/pull/139))
+- Ensure sass directory exists ([456daa3](https://github.com/laravel/ui/commit/456daa330a32483b0fa9794334e60af6b2db3bf6))
+
+
+## [v2.2.0 (2020-08-25)](https://github.com/laravel/ui/compare/v2.1.0...v2.2.0)
+
+### Added
+- Laravel 8 support ([4a0db5b](https://github.com/laravel/ui/commit/4a0db5b2e5d3c032b0f213e847008d39c8c7ce45))
+
+### Fixed
+- Remove caret and replace `display: none` with `d-none` ([#135](https://github.com/laravel/ui/pull/135))
+
+
+## [v2.1.0 (2020-06-30)](https://github.com/laravel/ui/compare/v2.0.3...v2.1.0)
+
+### Added
+- Allow for optional login and logout routes ([#113](https://github.com/laravel/ui/pull/113))
+
+### Fixed
+- Missed localizable strings ([#105](https://github.com/laravel/ui/pull/105))
 
 
 ## [v2.0.3 (2020-04-29)](https://github.com/laravel/ui/compare/v2.0.2...v2.0.3)

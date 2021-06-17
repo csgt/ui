@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,15 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/dist/js')
-    .sass('resources/sass/app.scss', 'public/dist/css')
-    .options({
-        processCssUrls: true,
-    });
+mix.js("resources/js/app.js", "public/dist/js")
+    .vue()
+    .sass("resources/sass/app.scss", "public/dist/css")
+    .extract();
 
 if (mix.inProduction()) {
-    mix.version()
-}
-else {
-    mix.sourceMaps()
+    mix.version();
+} else {
+    mix.sourceMaps();
 }
