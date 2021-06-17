@@ -189,6 +189,7 @@ class AuthCommand extends Command
             'HomeController',
             'Catalogs/RolesController',
             'Catalogs/UsersController',
+            'ProfileController',
         ];
 
         foreach ($stubs as $stub) {

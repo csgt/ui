@@ -1,6 +1,10 @@
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('profile', 'ProfileController', ['only' => ['index', 'detail', 'store']]);
+});
+
 Route::group(['middleware' => ['auth', 'cancerbero']], function () {
     Route::get('/', ['as' => 'index.index', 'uses' => 'HomeController@index']);
     

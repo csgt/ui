@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('catalogs-roles-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/RolesEdit.vue').default)
 Vue.component('catalogs-rolemodule', require('../../vendor/csgt/utils/src/resources/views/catalogs/RoleModule.vue').default)
 Vue.component('catalogs-users-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/UsersEdit.vue').default)
+Vue.component('profile', require('../../vendor/csgt/utils/src/resources/views/Profile.vue').default)
 Vue.component('InputField', require('../../vendor/csgt/utils/src/resources/components/InputField.vue').default)
 
 /**
