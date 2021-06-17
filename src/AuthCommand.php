@@ -49,7 +49,7 @@ class AuthCommand extends Command
         'es.json'            => 'es.json',
     ];
 
-    protected $seeds = [
+    protected $seeders = [
         'DatabaseSeeder.stub'          => 'DatabaseSeeder.php',
         'GodSeeder.stub'               => 'GodSeeder.php',
         'InitialSeeder.stub'           => 'InitialSeeder.php',
@@ -80,7 +80,7 @@ class AuthCommand extends Command
         $this->ensureDirectoriesExist();
         $this->exportViews();
         $this->exportLangs();
-        $this->exportSeeds();
+        $this->exportSeeders();
 
         if (!$this->option('views')) {
             $this->exportBackend();
@@ -160,17 +160,17 @@ class AuthCommand extends Command
      *
      * @return void
      */
-    protected function exportSeeds()
+    protected function exportSeeders()
     {
-        foreach ($this->seeds as $key => $value) {
-            if (file_exists($seed = database_path('seeds/' . $value)) && !$this->option('force')) {
+        foreach ($this->seeders as $key => $value) {
+            if (file_exists($seed = database_path('seeders/' . $value)) && !$this->option('force')) {
                 if (!$this->confirm("The [{$value}] seed already exists. Do you want to replace it?")) {
                     continue;
                 }
             }
 
             copy(
-                __DIR__ . '/Auth/stubs/seeds/' . $key,
+                __DIR__ . '/Auth/stubs/seeders/' . $key,
                 $seed
             );
         }
