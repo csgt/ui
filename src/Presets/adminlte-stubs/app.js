@@ -6,7 +6,7 @@
 
 require("./bootstrap");
 
-import Vue from "Vue";
+import Vue from "vue";
 window.Vue = require("vue");
 
 /**
