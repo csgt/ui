@@ -30,7 +30,7 @@ class AdminLTE extends Preset
     {
         return [
             '@fortawesome/fontawesome-free'     => '^5.8',
-            'admin-lte'                         => '^3.1',
+            'admin-lte'                         => '3.2.0-rc',
             'datatables.net-bs4'                => '^1.10',
             'datatables.net-responsive-bs4'     => '^2.2',
             'datatables.net-responsive'         => '^2.2',
