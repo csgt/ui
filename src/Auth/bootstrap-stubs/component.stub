@@ -16,12 +16,12 @@
 @stop
 @section('content')
     <{{ $component }}
-        @if(isset($params))
-            @foreach($params as $param => $val)
+        @if(isset($props))
+            @foreach($props as $prop => $val)
                 @if(is_object($val) || is_array($val))
-                    :{{$param}} = "{{ json_encode($val) }}"
+                    :{{$prop}} = "{{ json_encode($val) }}"
                 @else
-                    {{$param}} = "{{$val}}"
+                    {{$prop}} = "{{$val}}"
                 @endif
             @endforeach
         @endif
