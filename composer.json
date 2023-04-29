@@ -1,7 +1,10 @@
 {
     "name": "csgt/ui",
     "description": "CSGT Laravel UI utilities and presets.",
-    "keywords": ["laravel", "ui"],
+    "keywords": [
+        "laravel",
+        "ui"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +13,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.0|^8.1",
         "illuminate/console": "^8.42|^9.0",
         "illuminate/filesystem": "^8.42|^9.0",
         "illuminate/support": "^8.82|^9.0",
