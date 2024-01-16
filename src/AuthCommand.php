@@ -163,14 +163,14 @@ class AuthCommand extends Command
     protected function exportSeeds()
     {
         foreach ($this->seeds as $key => $value) {
-            if (file_exists($seed = database_path('seeds/' . $value)) && !$this->option('force')) {
-                if (!$this->confirm("The [{$value}] seed already exists. Do you want to replace it?")) {
+            if (file_exists($seed = database_path('seeders/' . $value)) && !$this->option('force')) {
+                if (!$this->confirm("The [{$value}] seeder already exists. Do you want to replace it?")) {
                     continue;
                 }
             }
 
             copy(
-                __DIR__ . '/Auth/stubs/seeds/' . $key,
+                __DIR__ . '/Auth/stubs/seeders/' . $key,
                 $seed
             );
         }
