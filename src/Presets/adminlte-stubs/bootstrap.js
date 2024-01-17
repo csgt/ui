@@ -1,23 +1,22 @@
-window._ = require('lodash');
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
-    window.moment = require('moment');
-    window.toastr = require('toastr')
-    require('bootstrap');
-} catch (e) {}
+import $ from "jquery";
+window.$ = window.jQuery = $;
 
-require('admin-lte');
-require('datatables.net-bs4');
-require('datatables.net-responsive-bs4');
-require('eonasdan-bootstrap-datetimepicker');
+// window.Popper = require("popper.js").default;
+import Toastr from "toastr";
+window.toastr = Toastr;
+
+import "bootstrap";
+import "admin-lte";
+import "datatables.net-bs5";
+import "datatables.net-responsive-bs5";
+import Moment from "moment";
+window.moment = Moment;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -25,9 +24,12 @@ require('eonasdan-bootstrap-datetimepicker');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+import axios from "axios";
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios.defaults.withCredentials = true;
+window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+export { axios };
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -117,18 +117,22 @@
     @vite(['resources/js/app.js'])
     @yield('javascript')
     <script>
-        $(document).ready(function() {
-            var navParent = $('.nav-item .active').closest('.has-treeview');
-            navParent.addClass('menu-open');
-            navParent.children('.nav-link').addClass('active');
-            @if (session()->has('message'))
-                @if (session()->get('type') == 'danger')
-                    toastr.error('{{ session()->get('message') }}')
-                @else
-                    toastr.{{ session()->get('type') }}(' {{ session()->get('message') }} ')
-                @endif
+        var a = document.querySelector(".nav-link.active");
+        while (a) {
+            if (a.className == "nav-item has-treeview") {
+                a.getElementsByTagName("a")[0].classList.add("active");
+                a.classList.add("menu-open");
+            }
+            a = a.parentNode;
+        }
+
+        @if (session()->has('message'))
+            @if (session()->get('type') == 'danger')
+                toastr.error('{{ session()->get('message') }}')
+            @else
+                toastr.{{ session()->get('type') }}(' {{ session()->get('message') }} ')
             @endif
-        });
+        @endif
     </script>
 </body>
 

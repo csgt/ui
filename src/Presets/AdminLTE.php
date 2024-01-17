@@ -42,7 +42,7 @@ class AdminLTE extends Preset
             'toastr'                        => '^2.1',
             'vue-moment'                    => '^4.0',
             "jquery"                        => "^3.7.1",
-            '@rollup/plugin-inject'         => "^5.0.5",
+            '@vitejs/plugin-vue'            => "^5.0.3",
         ] + Arr::except($packages, [
             '@babel/preset-react',
             'react',
