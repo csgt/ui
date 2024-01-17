@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import "./bootstrap";
 
-window.Vue = require('vue');
+import { createApp } from "vue";
 
 /**
  * The following block of code may be used to automatically register your
@@ -18,19 +18,20 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('catalogs-roles-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/RolesEdit.vue').default)
-Vue.component('catalogs-rolemodule', require('../../vendor/csgt/utils/src/resources/views/catalogs/RoleModule.vue').default)
-Vue.component('catalogs-users-edit', require('../../vendor/csgt/utils/src/resources/views/catalogs/UsersEdit.vue').default)
-Vue.component('profile', require('../../vendor/csgt/utils/src/resources/views/Profile.vue').default)
-Vue.component('InputField', require('../../vendor/csgt/utils/src/resources/components/InputField.vue').default)
+import CatalogsRolesEdit from "../../vendor/csgt/utils/src/resources/views/catalogs/RolesEdit.vue";
+import CatalogsRoleModule from "../../vendor/csgt/utils/src/resources/views/catalogs/RoleModule.vue";
+import CatalogsUsersEdit from "../../vendor/csgt/utils/src/resources/views/catalogs/UsersEdit.vue";
+import Profile from "../../vendor/csgt/utils/src/resources/views/Profile.vue";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+const app = createApp();
+app.component("catalogs-roles-edit", CatalogsRolesEdit);
+app.component("catalogs-rolemodule", CatalogsRoleModule);
+app.component("catalogs-users-edit", CatalogsUsersEdit);
+app.component("profile", Profile);
 
-const app = new Vue({
-    el: '#app',
-});
+app.mount("#app");

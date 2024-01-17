@@ -12,57 +12,48 @@ class PermissionsSeeder extends Seeder
 
         Permission::insert([
             [
-                'id'          => 1,
-                'parent_id'   => null,
                 'name'        => 'index',
+                'parent'      => null,
                 'description' => 'Ver',
             ],
             [
-                'id'          => 2,
-                'parent_id'   => null,
                 'name'        => 'create',
+                'parent'      => null,
                 'description' => 'Crear',
             ],
             [
-                'id'          => 3,
-                'parent_id'   => 2,
                 'name'        => 'store',
+                'parent'      => 'create',
                 'description' => 'Guardar',
             ],
             [
-                'id'          => 4,
-                'parent_id'   => null,
                 'name'        => 'edit',
+                'parent'      => null,
                 'description' => 'Editar',
             ],
             [
-                'id'          => 5,
-                'parent_id'   => 4,
                 'name'        => 'update',
+                'parent'      => 'edit',
                 'description' => 'Actualizar',
             ],
             [
-                'id'          => 6,
-                'parent_id'   => null,
                 'name'        => 'destroy',
+                'parent'      => null,
                 'description' => 'Borrar',
             ],
             [
-                'id'          => 7,
-                'parent_id'   => 1,
                 'name'        => 'data',
+                'parent'      => 'index',
                 'description' => 'Obtener datos',
             ],
             [
-                'id'          => 8,
-                'parent_id'   => 4,
                 'name'        => 'detail',
+                'parent'      => 'edit',
                 'description' => 'Obtener datos edición',
             ],
             [
-                'id'          => 9,
-                'parent_id'   => null,
                 'name'        => 'show',
+                'parent'      => null,
                 'description' => 'Información',
             ],
         ]);
