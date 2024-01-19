@@ -52,8 +52,7 @@
                         </div>
                     </div>
                     <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview"
-                            role="menu" data-accordion="false">
+                        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu">
                             {!! \Csgt\Utils\Menu::menu() !!}
                             <li class="nav-header">USUARIO</li>
                             <li class="nav-item">
@@ -96,7 +95,7 @@
                 </div>
             </main>
             <footer class="app-footer">
-                <strong>Copyright &copy; {{ date('Y') == 2020 ? '2020' : '2020-' . date('Y') }} <a
+                <strong>Copyright &copy; {{ date('Y') == 2024 ? '2024' : '2024-' . date('Y') }} <a
                         href="{{ env('APP_COMPANY_URL') }}">{{ env('APP_COMPANY') }}</a>.</strong>
                 Todos los derechos reservados.
                 <div class="float-right d-none d-sm-inline-block">
