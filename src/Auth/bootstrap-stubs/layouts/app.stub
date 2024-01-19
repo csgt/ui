@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
-    @vite('resources/sass/app.scss')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'node_modules/admin-lte/dist/js/adminlte.min.js'])
     @yield('css')
 </head>
 @php
@@ -114,10 +114,8 @@
             @yield('content')
         </div>
     @endif
-
-    @vite(['resources/js/app.js'])
     @yield('javascript')
-    <script>
+    <script type="module">
         var a = document.querySelector(".nav-link.active");
         while (a) {
             if (a.className == "nav-item has-treeview") {

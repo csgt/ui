@@ -12,7 +12,6 @@ import Toastr from "toastr";
 window.toastr = Toastr;
 
 import "bootstrap";
-import "admin-lte";
 import "datatables.net-bs5";
 import "datatables.net-responsive-bs5";
 import Moment from "moment";
