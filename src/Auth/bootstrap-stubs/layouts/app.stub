@@ -27,7 +27,7 @@
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="/" class="brand-link">
-                <img src="https://via.placeholder.com/150x150" alt="{{config('app.name')}}" class="brand-image elevation-3" style="opacity: .8">
+                <img src="https://via.placeholder.com/50x50" alt="{{config('app.name')}}" class="brand-image elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">{{config('app.name')}}</span>
             </a>
 
@@ -102,7 +102,7 @@
             height: 100% !important;
         }
     </style>
-    <div class="row h-100 justify-content-center align-items-center">
+    <div class="row h-100 justify-content-center align-items-center" id="app">
         @yield('content')
     </div>
     @endif
