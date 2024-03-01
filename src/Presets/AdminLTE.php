@@ -14,7 +14,6 @@ class AdminLTE extends Preset
     {
         static::ensureComponentDirectoryExists();
         static::updatePackages();
-        static::updateWebpackConfiguration();
         static::updateSass();
         static::updateBootstrapping();
         static::removeNodeModules();
@@ -29,37 +28,26 @@ class AdminLTE extends Preset
     protected static function updatePackageArray(array $packages)
     {
         return [
-            'resolve-url-loader'                => '^2.3.1',
-            'sass'                              => '^1.20.1',
-            'sass-loader'                       => '^8.0.0',
-            'vue'                               => '^2.5.17',
-            'vue-template-compiler'             => '^2.6.10',
-            '@fortawesome/fontawesome-free'     => '^5.8',
-            'admin-lte'                         => '^3.0',
-            'datatables.net'                    => '^1.10',
-            'datatables.net-bs4'                => '^1.10',
-            'datatables.net-responsive'         => '^2.2',
-            'datatables.net-responsive-bs4'     => '^2.2',
-            'eonasdan-bootstrap-datetimepicker' => '^4.17',
-            'toastr'                            => '^2.1',
-            'vue-bootstrap-datetimepicker'      => '^5.0',
-            'vue-moment'                        => '^4.0',
-            'vue2-selectize'                    => '^1.1',
+            'resolve-url-loader'            => '^5.0.0',
+            'sass'                          => '^1.20.1',
+            'sass-loader'                   => '^14.0.0',
+            'vue'                           => '^3.0',
+            'vue-template-compiler'         => '^2.6.10',
+            '@fortawesome/fontawesome-free' => '^6.5.1',
+            'admin-lte'                     => '4.0.0-alpha3',
+            'datatables.net'                => '^1.12.1',
+            'datatables.net-bs5'            => '^1.12.1',
+            'datatables.net-responsive'     => '^2.2',
+            'datatables.net-responsive-bs5' => '^2.2',
+            'toastr'                        => '^2.1',
+            'vue-moment'                    => '^4.0',
+            "jquery"                        => "^3.7.1",
+            '@vitejs/plugin-vue'            => "^5.0.3",
         ] + Arr::except($packages, [
             '@babel/preset-react',
             'react',
             'react-dom',
         ]);
-    }
-
-    /**
-     * Update the Webpack configuration.
-     *
-     * @return void
-     */
-    protected static function updateWebpackConfiguration()
-    {
-        copy(__DIR__ . '/adminlte-stubs/webpack.mix.js', base_path('webpack.mix.js'));
     }
 
     /**

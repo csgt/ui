@@ -204,10 +204,9 @@ class AuthCommand extends Command
             }
         }
 
-        file_put_contents(
+        copy(
+            __DIR__ . '/Auth/stubs/routes.stub',
             base_path('routes/web.php'),
-            file_get_contents(__DIR__ . '/Auth/stubs/routes.stub'),
-            FILE_APPEND
         );
 
         copy(
