@@ -1,6 +1,99 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v3.4.6...3.x)
+## [Unreleased](https://github.com/laravel/ui/compare/v4.6.1...4.x)
+
+## [v4.6.1](https://github.com/laravel/ui/compare/v4.6.0...v4.6.1) - 2025-01-28
+
+* Supports Laravel 12 by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/ui/pull/277
+
+## [v4.6.0](https://github.com/laravel/ui/compare/v4.5.2...v4.6.0) - 2024-11-21
+
+* Update README.md by [@pau1phi11ips](https://github.com/pau1phi11ips) in https://github.com/laravel/ui/pull/271
+* Replace dead link in Security Policy by [@Jubeki](https://github.com/Jubeki) in https://github.com/laravel/ui/pull/274
+* [4.x] Supports PHP 8.4 by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/ui/pull/276
+
+## [v4.5.2](https://github.com/laravel/ui/compare/v4.5.1...v4.5.2) - 2024-05-08
+
+* [4.x] Ensure logout requires authentication by [@timacdonald](https://github.com/timacdonald) in https://github.com/laravel/ui/pull/269
+
+## [v4.5.1](https://github.com/laravel/ui/compare/v4.5.0...v4.5.1) - 2024-03-21
+
+* [4.x] Make commands lazy by [@timacdonald](https://github.com/timacdonald) in https://github.com/laravel/ui/pull/264
+* [4.x] Fixes defaults on confirm by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/ui/pull/265
+
+## [v4.5.0](https://github.com/laravel/ui/compare/v4.4.0...v4.5.0) - 2024-03-04
+
+* Fix supported Versions by [@Seb33300](https://github.com/Seb33300) in https://github.com/laravel/ui/pull/261
+* PHPUnit v11 support by [@driesvints](https://github.com/driesvints) in https://github.com/laravel/ui/pull/262
+* Test Improvements by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/ui/pull/263
+
+## [v4.4.0](https://github.com/laravel/ui/compare/v4.3.0...v4.4.0) - 2024-01-12
+
+* [4.x] Merges develop by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/ui/pull/259
+
+## [v4.3.0](https://github.com/laravel/ui/compare/v4.2.3...v4.3.0) - 2023-12-19
+
+* [4.x] Vite 5 by [@timacdonald](https://github.com/timacdonald) in https://github.com/laravel/ui/pull/258
+
+## [v4.2.3](https://github.com/laravel/ui/compare/v4.2.2...v4.2.3) - 2023-11-23
+
+* [4.x] Support pusher-js v8.0 by [@antimech](https://github.com/antimech) in https://github.com/laravel/ui/pull/256
+
+## [v4.2.2](https://github.com/laravel/ui/compare/v4.2.1...v4.2.2) - 2023-05-09
+
+- Update app.stub to preload the right font source by @tommica in https://github.com/laravel/ui/pull/248
+
+## [v4.2.1](https://github.com/laravel/ui/compare/v4.2.0...v4.2.1) - 2023-02-17
+
+- Remove lodash import by @emargareten in https://github.com/laravel/ui/pull/247
+
+## [v4.2.0](https://github.com/laravel/ui/compare/v4.1.1...v4.2.0) - 2023-01-10
+
+### Added
+
+- Add Laravel 10 support by @jnoordsij in https://github.com/laravel/ui/pull/246
+
+### Fixed
+
+- Update @vitejs/plugin-vue version by @asherawelan in https://github.com/laravel/ui/pull/245
+
+## [v4.1.1](https://github.com/laravel/ui/compare/v4.1.0...v4.1.1) - 2022-12-05
+
+### Changed
+
+- Bump Bootstrap dependencies by @PerryvanderMeer in https://github.com/laravel/ui/pull/243
+
+## [v4.1.0](https://github.com/laravel/ui/compare/v4.0.2...v4.1.0) - 2022-11-15
+
+### Added
+
+- Reactjs18 by @gqrlab in https://github.com/laravel/ui/pull/242
+
+## [v4.0.2](https://github.com/laravel/ui/compare/v4.0.1...v4.0.2) - 2022-09-09
+
+### Changed
+
+- Bump bootstrap version to latest by @kjoedion in https://github.com/laravel/ui/pull/237
+
+## [v4.0.1](https://github.com/laravel/ui/compare/v4.0.0...v4.0.1) - 2022-09-07
+
+### Changed
+
+- Update deprecated globing mechanism by @timacdonald in https://github.com/laravel/ui/pull/236
+
+## [v4.0.0](https://github.com/laravel/ui/compare/v3.4.6...v4.0.0) - 2022-07-25
+
+### Added
+
+- Vite by @jessarcher in https://github.com/laravel/ui/pull/228 and in https://github.com/laravel/ui/pull/231
+
+### Changed
+
+- Improves console output by @nunomaduro in https://github.com/laravel/ui/pull/233
+
+### Removed
+
+- Drop support for Laravel 8 and PHP 7.3 & 7.4 by @driesvints in https://github.com/laravel/ui/pull/232
 
 ## [v3.4.6](https://github.com/laravel/ui/compare/v3.4.5...v3.4.6) - 2022-05-20
 
