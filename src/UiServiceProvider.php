@@ -1,7 +1,7 @@
 <?php
-
 namespace Laravel\Ui;
 
+use Laravel\Ui\UiCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 

@@ -2,6 +2,7 @@
 namespace Laravel\Ui;
 
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'ui:auth')]
