@@ -39,11 +39,12 @@ class AdminLTE extends Preset
             'datatables.net'                => '^1.12.1',
             'datatables.net-bs4'            => '^1.12.1',
             'datatables.net-responsive'     => '^2.2',
-            'datatables.net-responsive-bs4' => '^2.2',
+            'datatables.net-responsive-bs5' => '^2.2',
             'toastr'                        => '^2.1',
             'vue-moment'                    => '^4.0',
             'vue2-selectize'                => '^1.1',
             "vue-multiselect"               => "^3.0.0-beta.3",
+            "@vitejs/plugin-vue"            => "^5.0.3",
         ] + Arr::except($packages, [
             '@babel/preset-react',
             'react',

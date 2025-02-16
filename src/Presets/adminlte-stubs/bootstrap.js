@@ -13,6 +13,9 @@ window.$ = window.jQuery = $;
 import Toastr from "toastr";
 window.toastr = Toastr;
 
+import Moment from "moment";
+window.moment = Moment;
+
 import "bootstrap";
 import "datatables.net-bs5";
 import "datatables.net-responsive-bs5";
