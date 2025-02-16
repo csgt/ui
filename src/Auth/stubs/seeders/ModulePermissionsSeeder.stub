@@ -1,14 +1,14 @@
 <?php
-use App\Models\Auth\Module;
+namespace Database\Seeders;
+
+use Database\Seeders\Sections;
 use Illuminate\Database\Seeder;
-use App\Models\Auth\ModulePermission;
+use App\Models\ModulePermission;
 
 class ModulePermissionsSeeder extends Seeder
 {
-    private $inserts = [];
     public function run()
     {
-        $modules  = Module::all();
         $sections = new Sections;
         $sections = $sections->get()->filter(function ($section) {
             return $section->permissions !== [];
@@ -16,18 +16,19 @@ class ModulePermissionsSeeder extends Seeder
 
         ModulePermission::truncate();
 
-        $modulesPermissions = $modules->map(function ($module) use ($sections) {
-            $moduleSection = $sections->first(function ($section, $key) use ($module) {
-                return $section->module == $module->name;
+        $insertPermissions = $sections->map(function ($section, $arr) {
+            return collect($section->permissions)->map(function ($permission) use ($section, $arr) {
+
+                if (is_numeric($permission)) {
+                    $permission = $arr[$permission];
+                }
+
+                return $section->module . '.' . $permission;
             });
+        })->flatten()->map(function ($item) {
+            return ['name' => $item];
+        })->toArray();
 
-            $insertPermissions = collect($moduleSection->permissions)->map(function ($permission) {
-                return ['permission_id' => $permission];
-            })->toArray();
-
-            $module->modulepermissions()->createMany($insertPermissions);
-
-            return $moduleSection->permissions;
-        });
+        ModulePermission::insert($insertPermissions);
     }
 }

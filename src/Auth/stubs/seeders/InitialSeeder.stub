@@ -1,8 +1,11 @@
 <?php
-use App\Models\Auth\Role;
-use App\Models\Auth\User;
-use App\Models\Auth\UserRole;
+namespace Database\Seeders;
+
+use App\Models\Role;
+use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class InitialSeeder extends Seeder
@@ -15,6 +18,14 @@ class InitialSeeder extends Seeder
             'id'          => 1,
             'name'        => 'Backdoor',
             'description' => 'Rol Backdoor',
+            'created_at'  => date_create(),
+            'updated_at'  => date_create(),
+        ]);
+
+        Role::insert([
+            'id'          => 2,
+            'name'        => 'User',
+            'description' => 'Default end user role',
             'created_at'  => date_create(),
             'updated_at'  => date_create(),
         ]);
@@ -36,8 +47,8 @@ class InitialSeeder extends Seeder
             'updated_at' => date_create(),
         ]);
 
-        DB::statement('INSERT INTO role_module_permissions (role_id, module_permission_id, created_at, updated_at)
-				SELECT 1, id, NOW(), NOW() FROM module_permissions');
+        DB::statement('INSERT INTO role_module_permissions (role_id, module_permission, created_at, updated_at)
+				SELECT 1, name, NOW(), NOW() FROM module_permissions');
 
         Schema::enableForeignKeyConstraints();
     }

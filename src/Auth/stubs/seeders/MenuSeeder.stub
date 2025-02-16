@@ -1,8 +1,9 @@
 <?php
+namespace Database\Seeders;
+
 use App\Models\Menu\Menu;
-use App\Models\Auth\Module;
 use Illuminate\Database\Seeder;
-use App\Models\Auth\ModulePermission;
+use Illuminate\Support\Facades\Cache;
 
 class MenuSeeder extends Seeder
 {
@@ -19,24 +20,14 @@ class MenuSeeder extends Seeder
             }
             $menuItem = new Menu;
 
-            $menuItem->icon  = $section->icon;
-            $menuItem->name  = $section->name;
-            $menuItem->route = $section->module;
-            $menuItem->order = $section->menuOrder;
-
+            $menuItem->icon         = $section->icon;
+            $menuItem->name         = $section->name;
+            $menuItem->route        = $section->module . (!empty($section->permissions) ? '.' . $section->menuPermission : '');
+            $menuItem->order        = $section->menuOrder;
+            $menuItem->has_children = empty($section->permissions);
             if ($section->parentModule) {
-                $parentModule        = Menu::where('route', $section->parentModule)->value('id');
-                $menuItem->parent_id = $parentModule;
+                $menuItem->parent_route = $section->parentModule;
             }
-
-            $module = Module::where('name', $section->module)->first();
-            if ($module) {
-                $modulePermission = ModulePermission::where('module_id', $module->id)
-                    ->where('permission_id', $section->menuPermission)
-                    ->value('id');
-                $menuItem->module_permission_id = $modulePermission;
-            }
-
             $menuItem->save();
         }
         Cache::flush();

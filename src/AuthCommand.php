@@ -188,6 +188,7 @@ class AuthCommand extends Command
         $this->callSilent('ui:controllers');
 
         $stubs = [
+            'Controller',
             'HomeController',
             'Catalogs/RolesController',
             'Catalogs/UsersController',
