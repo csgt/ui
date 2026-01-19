@@ -59,7 +59,7 @@ class AdminLTE extends Preset
      */
     protected static function updateViteConfiguration()
     {
-        copy(__DIR__ . '/vue-stubs/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__ . '/adminlte-stubs/vite.config.js', base_path('vite.config.js'));
     }
 
     /**
