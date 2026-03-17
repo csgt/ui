@@ -11,13 +11,13 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: true
       matrix:
-        php: [8.1, 8.2, 8.3, 8.4]
-        laravel: [10, 11, 12]
+        php: [8.1, 8.2, 8.3, 8.4, 8.5]
+        laravel: [10, 11, 12, 13]
         include:
           - php: 8.2
             laravel: 9
@@ -26,12 +26,18 @@ jobs:
           - php: '8.0'
             laravel: 9
         exclude:
+          - php: 8.5
+            laravel: 10
           - php: 8.4
             laravel: 10
+          - php: 8.2
+            laravel: 13
           - php: 8.1
             laravel: 11
           - php: 8.1
             laravel: 12
+          - php: 8.1
+            laravel: 13
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
