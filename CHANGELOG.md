@@ -1,6 +1,11 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v4.6.2...4.x)
+## [Unreleased](https://github.com/laravel/ui/compare/v4.6.3...4.x)
+
+## [v4.6.3](https://github.com/laravel/ui/compare/v4.6.2...v4.6.3) - 2026-03-17
+
+* Laravel 13 compatibility by [@jnoordsij](https://github.com/jnoordsij) in https://github.com/laravel/ui/pull/286
+* CI fixes by [@jnoordsij](https://github.com/jnoordsij) in https://github.com/laravel/ui/pull/287
 
 ## [v4.6.2](https://github.com/laravel/ui/compare/v4.6.1...v4.6.2) - 2026-03-10
 
