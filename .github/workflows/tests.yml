@@ -27,6 +27,8 @@ jobs:
             laravel: 9
         exclude:
           - php: 8.5
+            laravel: 11
+          - php: 8.5
             laravel: 10
           - php: 8.4
             laravel: 10
@@ -43,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
