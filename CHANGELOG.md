@@ -1,6 +1,17 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v4.6.1...4.x)
+## [Unreleased](https://github.com/laravel/ui/compare/v4.6.3...4.x)
+
+## [v4.6.3](https://github.com/laravel/ui/compare/v4.6.2...v4.6.3) - 2026-03-17
+
+* Laravel 13 compatibility by [@jnoordsij](https://github.com/jnoordsij) in https://github.com/laravel/ui/pull/286
+* CI fixes by [@jnoordsij](https://github.com/jnoordsij) in https://github.com/laravel/ui/pull/287
+
+## [v4.6.2](https://github.com/laravel/ui/compare/v4.6.1...v4.6.2) - 2026-03-10
+
+* Update supported versions by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/ui/pull/278
+* Fix '[@vitejs](https://github.com/vitejs)/plugin-vue' conflict with laravel 12.X by [@zohaibhassan156](https://github.com/zohaibhassan156) in https://github.com/laravel/ui/pull/279
+* [4.x] Makes imports consistent by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/ui/pull/285
 
 ## [v4.6.1](https://github.com/laravel/ui/compare/v4.6.0...v4.6.1) - 2025-01-28
 
