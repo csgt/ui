@@ -31,24 +31,27 @@ class AdminLTE extends Preset
         return [
             'resolve-url-loader'            => '^5.0.0',
             'sass'                          => '^1.20.1',
-            'sass-loader'                   => '^14.0.0',
+            'sass-loader'                   => '^16.0.7',
             'vue'                           => '^3.0',
             'vue-template-compiler'         => '^2.6.10',
-            '@fortawesome/fontawesome-free' => '^6.5.1',
-            'admin-lte'                     => '4.0.0-beta3',
-            'datatables.net'                => '^1.12.1',
-            'datatables.net-bs4'            => '^1.12.1',
-            'datatables.net-responsive'     => '^2.2',
-            'datatables.net-responsive-bs5' => '^2.2',
+            '@fortawesome/fontawesome-free' => '^7.2.0',
+            'admin-lte'                     => '4.0.0-rc7',
+            'datatables.net'                => '^2.0',
+            'datatables.net-bs4'            => '^2.0',
+            'datatables.net-responsive'     => '^3.0',
+            'datatables.net-responsive-bs5' => '^3.0',
             'toastr'                        => '^2.1',
             'vue-moment'                    => '^4.0',
             'vue2-selectize'                => '^1.1',
             "vue-multiselect"               => "^3.0.0-beta.3",
-            "@vitejs/plugin-vue"            => "^5.0.3",
+            "@vitejs/plugin-vue"            => "^6.0.5",
+            "vite-plugin-static-copy"       => "^3.1.2",
         ] + Arr::except($packages, [
             '@babel/preset-react',
             'react',
             'react-dom',
+            'tailwindcss',
+            'tailwindcss/vite'
         ]);
     }
 

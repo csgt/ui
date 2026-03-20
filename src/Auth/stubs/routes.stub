@@ -12,6 +12,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', ProfileController::class, ['only' => ['index', 'detail', 'store']]);
     Route::get('/', [HomeController::class, 'index'])->name('index.index');
+    Route::get('home', [HomeController::class, 'index'])->name('index.index');
 });
 
 Route::group(['middleware' => ['auth', 'cancerbero']], function () {
