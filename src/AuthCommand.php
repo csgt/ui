@@ -110,7 +110,7 @@ class AuthCommand extends Command
             mkdir($directory, 0755, true);
         }
 
-        if (!is_dir($directory = resource_path('lang/es'))) {
+        if (!is_dir($directory = app()->langPath() . '/es')) {
             mkdir($directory, 0755, true);
         }
     }
@@ -144,7 +144,7 @@ class AuthCommand extends Command
     protected function exportLangs()
     {
         foreach ($this->trans as $key => $value) {
-            if (file_exists($lang = resource_path('lang/' . $value)) && !$this->option('force')) {
+            if (file_exists($lang = app()->langPath() . $value)) && !$this->option('force')) {
                 if (!$this->confirm("The [{$value}] lang already exists. Do you want to replace it?")) {
                     continue;
                 }
