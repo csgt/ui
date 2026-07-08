@@ -7,11 +7,7 @@ export default defineConfig({
     assetsDir: "assets",
     plugins: [
         laravel({
-            input: [
-                "resources/sass/app.scss",
-                "resources/js/app.js",
-                "node_modules/admin-lte/dist/js/adminlte.min.js",
-            ],
+            input: ["resources/sass/app.scss", "resources/js/app.js"],
             refresh: true,
         }),
         vue({

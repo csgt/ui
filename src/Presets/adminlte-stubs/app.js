@@ -6,6 +6,7 @@
 
 import "./bootstrap";
 import { createApp } from "vue";
+import "admin-lte/dist/js/adminlte.min.js";
 
 /**
  * The following block of code may be used to automatically register your
