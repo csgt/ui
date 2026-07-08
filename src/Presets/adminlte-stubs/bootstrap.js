@@ -18,6 +18,12 @@ import "bootstrap";
 import "datatables.net-bs5";
 import "datatables.net-responsive-bs5";
 
+//Fontawesome
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
+dom.watch();
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

@@ -1,11 +1,9 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import vue from "@vitejs/plugin-vue";
-import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
     assetsDir: "assets",
-    publicDir: "public",
     plugins: [
         laravel({
             input: ["resources/sass/app.scss", "resources/js/app.js"],
@@ -19,25 +17,10 @@ export default defineConfig({
                 },
             },
         }),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: "node_modules/@fortawesome/fontawesome-free/webfonts/*",
-                    dest: "resources/webfonts",
-                },
-            ],
-        }),
     ],
     server: {
         hmr: {
             host: "localhost",
-        },
-    },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                includePaths: ["resources/sass", "node_modules"],
-            },
         },
     },
     resolve: {
